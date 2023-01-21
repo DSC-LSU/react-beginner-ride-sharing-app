@@ -24,9 +24,42 @@
   border-bottom: 1px solid #ccc;
 }
 
-.rider-card .row-1 .name {
+.rider-card .row-1 .left .name {
   /*font-size: 1.5em;*/
   font-weight: 500;
+}
+
+.rider-card .row-1 .right .status {
+  /*font-size: 1.5em;*/
+  font-weight: 500;
+  padding: 5px;
+  border-radius: 5px;
+  user-select: none;
+}
+
+.rider-card[data-status="pending"] .row-1 .right .status {
+  background-color: rgba(255, 0, 0, 0.8);
+  color: white;
+}
+
+.rider-card[data-status="enroute"] .row-1 .right .status {
+  background-color: rgba(255, 166, 0, 0.96);
+  color: white;
+}
+
+.rider-card[data-status="pickedup"] .row-1 .right .status {
+  background-color: rgb(0, 181, 255);
+  color: white;
+}
+
+.rider-card[data-status="droppedoff"] .row-1 .right .status {
+  background-color: rgba(0, 128, 0, 0.5);
+  color: white;
+}
+
+.rider-card[data-status="droppedoff"] {
+  text-decoration: line-through;
+  background-color: rgba(220, 220, 220, 0.5);
 }
 
 .rider-card .row-2 {

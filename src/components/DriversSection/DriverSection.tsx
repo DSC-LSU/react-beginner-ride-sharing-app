@@ -10,6 +10,7 @@ export const DriverSection = () => {
       requestPlacedTime: 1600000000,
       pickupLocation: 'PFT',
       dropoffLocation: 'Middleton Library',
+      status: 'pending',
     },
     {
       name: 'Jane Doe',
@@ -17,13 +18,23 @@ export const DriverSection = () => {
       requestPlacedTime: 1600000000,
       pickupLocation: 'Tiger Stadium',
       dropoffLocation: 'Parade Grounds',
+      status: 'enroute',
     },
     {
-      name: 'Steven Doe',
+      name: 'Sally Doe',
       lsuEmail: 'sdoe1@lsu.edu',
       requestPlacedTime: 1600000000,
       pickupLocation: 'Studion Union',
       dropoffLocation: 'UREC',
+      status: 'pickedup',
+    },
+    {
+      name: 'Michelle Anderson',
+      lsuEmail: 'manderson1@lsu.edu',
+      requestPlacedTime: 1600000000,
+      pickupLocation: 'LSU Business Education Complex',
+      dropoffLocation: 'Nicholson Hall',
+      status: 'droppedoff',
     }
   ];
 

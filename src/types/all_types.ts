@@ -4,4 +4,5 @@ export type Rider = {
   requestPlacedTime: number,
   pickupLocation: string,
   dropoffLocation: string,
+  status: 'pending' | 'enroute' | 'pickedup' | 'droppedoff',
 }
