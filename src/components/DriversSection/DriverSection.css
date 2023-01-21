@@ -1,24 +1,9 @@
-.DriverSection {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 0 20px;
-    margin: 0 auto;
-    max-width: 1200px;
-    width: 100vw;
-}
-
-.DriverSection .section-header {
-    font-size: 1.8em;
-}
-
-.DriverSection .riders {
+.DriversSection .riders {
     display: flex;
     flex-direction: column;
     align-items: stretch;
     width: inherit;
-    max-width: 600px;
+    max-width: inherit;
     row-gap: 20px;
     padding: 0;
     list-style-type: none;

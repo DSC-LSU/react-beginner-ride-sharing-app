@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import {CustomTabs} from "./components/CustomTabs/CustomTabs";
 import {DriverSection} from "./components/DriversSection/DriverSection";
+import {RiderSection} from "./components/RiderSection/RiderSection";
 
 function App() {
   // const _CustomToggle = () => {
@@ -29,7 +30,7 @@ function App() {
       </header>
       <main>
         <CustomTabs tabs={['Driver', 'Rider']} selectedTab={selectedTab} onTabSelected={setSelectedTab}/>
-        <DriverSection/>
+        {selectedTab === 0 ? <DriverSection/> : <RiderSection/>}
       </main>
     </div>
   );

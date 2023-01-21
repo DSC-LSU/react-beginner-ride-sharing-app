@@ -1,6 +1,7 @@
 import './DriverSection.css';
 import {RiderCard} from "./components/RiderCard/RiderCard";
 import {Rider} from "../../types/all_types";
+import {PageSection} from "../PageSection/PageSection";
 
 export const DriverSection = () => {
   const riders: Array<Rider> = [
@@ -38,12 +39,9 @@ export const DriverSection = () => {
     }
   ];
 
-  return <div className={'DriverSection'}>
-    <h1 className={'section-header'}>Here are your rides</h1>
-    <ul className={'riders'}>
-      {riders.map((rider) => {
-        return <li><RiderCard rider={rider}/></li>
-      })}
-    </ul>
-  </div>
+  const riderCards = () => <ul className={'riders'}>
+    {riders.map((rider) => <li key={rider.lsuEmail}><RiderCard rider={rider}/></li>)}
+  </ul>
+
+  return <PageSection className={'DriversSection'} sectionHeader={'Here are your rides'} children={riderCards()}/>
 }
