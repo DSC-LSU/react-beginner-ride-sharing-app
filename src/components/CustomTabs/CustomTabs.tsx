@@ -3,16 +3,16 @@ import './CustomTabs.css';
 
 export type CustomTabsProps = {
   tabs: string[],
+  selectedTab: number,
+  onTabSelected: (index: number) => void
 }
 
 export const CustomTabs = (props: CustomTabsProps) => {
-  const {tabs} = props;
-
-  const [selectedTab, setSelectedTab] = React.useState(0);
+  const {tabs, selectedTab, onTabSelected} = props;
 
   return <div className={'custom-tabs'}>
     {tabs.map((tab, index) => {
-      return <button data-selected={selectedTab === index} onClick={() => setSelectedTab(index)}>{tab}</button>
+      return <button data-selected={selectedTab === index} onClick={() => onTabSelected(index)}>{tab}</button>
     })}
   </div>
 }

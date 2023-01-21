@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import {CustomTabs} from "./components/CustomTabs/CustomTabs";
+import {DriverSection} from "./components/DriversSection/DriverSection";
 
 function App() {
   // const _CustomToggle = () => {
@@ -14,18 +15,21 @@ function App() {
   //   </>
   // }
 
+  const [selectedTab, setSelectedTab] = React.useState(0);
+
   return (
     <div className="App">
       <header className="header">
         <div className={'left'}>
-          <h1 className={'title'}>Geaux Rides 🐯</h1>
+          <p className={'title'}>Geaux Rides 🐯</p>
           <p className={'subtitle'}>Ride sharing app for LSU tigers</p>
         </div>
         <div className={'right'}>
         </div>
       </header>
       <main>
-          <CustomTabs tabs={['Driver', 'Rider']}/>
+        <CustomTabs tabs={['Driver', 'Rider']} selectedTab={selectedTab} onTabSelected={setSelectedTab}/>
+        <DriverSection/>
       </main>
     </div>
   );
