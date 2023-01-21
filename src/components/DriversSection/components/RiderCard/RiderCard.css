@@ -1,0 +1,35 @@
+.rider-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  /*margin: 0 auto;*/
+  max-width: 1200px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.rider-card .row-1,
+.rider-card .row-2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.rider-card .row-1 {
+  border-bottom: 1px solid #ccc;
+}
+
+.rider-card .row-1 .name {
+  /*font-size: 1.5em;*/
+  font-weight: 500;
+}
+
+.rider-card .row-2 {
+  flex-direction: column;
+  align-items: start;
+}

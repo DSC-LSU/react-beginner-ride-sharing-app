@@ -1,14 +1,8 @@
 import './DriverSection.css';
+import {RiderCard} from "./components/RiderCard/RiderCard";
+import {Rider} from "../../types/all_types";
 
 export const DriverSection = () => {
-  type Rider = {
-    name: string,
-    lsuEmail: string,
-    requestPlacedTime: number,
-    pickupLocation: string,
-    dropoffLocation: string,
-  }
-
   const riders: Array<Rider> = [
     {
       name: 'John Doe',
@@ -33,27 +27,11 @@ export const DriverSection = () => {
     }
   ];
 
-  const _RiderCard = (props: { rider: Rider }) => {
-    const {rider} = props;
-
-    return <li className={'rider-card'}>
-      <div className={'row-1'}>
-        <p className={'name'}>{`${rider.name} (${rider.lsuEmail})`}</p>
-        <p className={'rider-request-placed-time'}>{new Date(rider.requestPlacedTime).toLocaleTimeString()}</p>
-      </div>
-      <div className={'row-2'}>
-        <p className={'pickup-location'}>{`From: ${rider.pickupLocation}`}</p>
-        <p className={'dropoff-location'}>{`To: ${rider.dropoffLocation}`}</p>
-      </div>
-
-    </li>
-  }
-
   return <div className={'DriverSection'}>
     <h2>Here are your rides</h2>
     <ul className={'riders'}>
       {riders.map((rider) => {
-        return <_RiderCard rider={rider}/>
+        return <li><RiderCard rider={rider}/></li>
       })}
     </ul>
   </div>
