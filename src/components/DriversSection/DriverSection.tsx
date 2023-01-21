@@ -2,6 +2,9 @@ import './DriverSection.css';
 import {RiderCard} from "./components/RiderCard/RiderCard";
 import {Rider} from "../../types/all_types";
 import {PageSection} from "../PageSection/PageSection";
+import {useEffect, useState} from "react";
+import {collection, query, orderBy, onSnapshot} from "firebase/firestore"
+import {firebaseDb} from "../../backend/firebase";
 
 export const DriverSection = () => {
   const riders: Array<Rider> = [
@@ -38,6 +41,25 @@ export const DriverSection = () => {
       status: 'droppedoff',
     }
   ];
+
+  // const [riders, setRiders] = useState<Array<Rider>>([]);
+
+  // useEffect(() => {
+  //   const q = query(collection(db, 'tasks'), orderBy('created', 'desc'))
+  //   onSnapshot(q, (querySnapshot) => {
+  //     const newRiders: Array<Rider> = querySnapshot.docs.map(doc => ({
+  //       name: doc.data().name,
+  //       lsuEmail: doc.id,
+  //       requestPlacedTime: 1000,
+  //       pickupLocation: doc.data().pickupLocation,
+  //       dropoffLocation: doc.data().dropoffLocation,
+  //       status: doc.data().status,
+  //     }));
+  //     console.log('newRiders', newRiders);
+  //     setRiders(newRiders);
+  //   })
+  // },[])
+
 
   const riderCards = () => <ul className={'riders'}>
     {riders.map((rider) => <li key={rider.lsuEmail}><RiderCard rider={rider}/></li>)}

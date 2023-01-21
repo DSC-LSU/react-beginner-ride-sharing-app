@@ -1,8 +1,11 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './App.css';
 import {CustomTabs} from "./components/CustomTabs/CustomTabs";
 import {DriverSection} from "./components/DriversSection/DriverSection";
 import {RiderSection} from "./components/RiderSection/RiderSection";
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import {firebaseAuth} from "./backend/firebase";
+import {Header} from "./components/Header/Header";
 
 function App() {
   // const _CustomToggle = () => {
@@ -18,16 +21,35 @@ function App() {
 
   const [selectedTab, setSelectedTab] = React.useState(0);
 
+  // useEffect(() => {
+  //   console.log("signin with popup");
+  //
+  //   const provider = new GoogleAuthProvider();
+  //   signInWithPopup(firebaseAuth, provider)
+  //     .then((result) => {
+  //       // This gives you a Google Access Token. You can use it to access the Google API.
+  //       const credential = GoogleAuthProvider.credentialFromResult(result);
+  //       const token = credential?.accessToken;
+  //       // The signed-in user info.
+  //       const user = result.user;
+  //       console.log('user', user);
+  //       // ...
+  //     }).catch((error) => {
+  //     // Handle Errors here.
+  //     const errorCode = error.code;
+  //     const errorMessage = error.message;
+  //     // The email of the user's account used.
+  //     const email = error.email;
+  //     // The AuthCredential type that was used.
+  //     const credential = GoogleAuthProvider.credentialFromError(error);
+  //     // ...
+  //     console.error('error', error);
+  //   });
+  // });
+
   return (
     <div className="App">
-      <header className="header">
-        <div className={'left'}>
-          <p className={'title'}>Geaux Rides 🐯</p>
-          <p className={'subtitle'}>Ride sharing app for LSU tigers</p>
-        </div>
-        <div className={'right'}>
-        </div>
-      </header>
+      <Header />
       <main>
         <CustomTabs tabs={['Driver', 'Rider']} selectedTab={selectedTab} onTabSelected={setSelectedTab}/>
         {selectedTab === 0 ? <DriverSection/> : <RiderSection/>}

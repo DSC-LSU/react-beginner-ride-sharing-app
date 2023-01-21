@@ -12,7 +12,7 @@ export const CustomTabs = (props: CustomTabsProps) => {
 
   return <div className={'custom-tabs'}>
     {tabs.map((tab, index) => {
-      return <button data-selected={selectedTab === index} onClick={() => onTabSelected(index)}>{tab}</button>
+      return <button key={tab} data-selected={selectedTab === index} onClick={() => onTabSelected(index)}>{tab}</button>
     })}
   </div>
 }
