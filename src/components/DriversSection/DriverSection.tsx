@@ -39,7 +39,7 @@ export const DriverSection = () => {
   ];
 
   return <div className={'DriverSection'}>
-    <h2>Here are your rides</h2>
+    <h1 className={'section-header'}>Here are your rides</h1>
     <ul className={'riders'}>
       {riders.map((rider) => {
         return <li><RiderCard rider={rider}/></li>

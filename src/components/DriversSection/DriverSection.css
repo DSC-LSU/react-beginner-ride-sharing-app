@@ -9,6 +9,10 @@
     width: 100vw;
 }
 
+.DriverSection .section-header {
+    font-size: 1.8em;
+}
+
 .DriverSection .riders {
     display: flex;
     flex-direction: column;
