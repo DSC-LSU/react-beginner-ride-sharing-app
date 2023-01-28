@@ -2,7 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAnalytics } from "firebase/analytics";
-import {getAuth} from "firebase/auth";
+import { getAuth } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -15,7 +15,7 @@ const firebaseConfig = {
   storageBucket: "ride-sharing-app-c1c4c.appspot.com",
   messagingSenderId: "383271351296",
   appId: "1:383271351296:web:7e92b41fbd9dac73e254e5",
-  measurementId: "G-XWHH27CHJW"
+  measurementId: "G-XWHH27CHJW",
 };
 
 // Initialize Firebase
@@ -24,4 +24,4 @@ const db = getFirestore(app);
 const auth = getAuth(app);
 const analytics = getAnalytics(app);
 
-export {db as firebaseDb, auth as firebaseAuth}
+export { db as firebaseDb, auth as firebaseAuth };
