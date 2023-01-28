@@ -63,6 +63,15 @@
 }
 
 .rider-card .row-2 {
-  flex-direction: column;
-  align-items: start;
+  /* flex-direction: column; */
+  align-items: center;
+}
+
+.rider-card .row-2 select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 0;
+  border-radius: 5px;
+  margin: 10px 0;
 }
