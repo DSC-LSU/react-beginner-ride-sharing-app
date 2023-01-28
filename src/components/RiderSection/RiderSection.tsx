@@ -47,9 +47,9 @@ export const RiderSection = () => {
 
     const newObject = {
       name,
-      email,
-      pickup,
-      dropdoff,
+      reqrequestPlacedTime: new Date().getTime(),
+      pickupLocation: pickup,
+      dropdoffLocation: dropdoff,
       status: "pending",
     };
 
