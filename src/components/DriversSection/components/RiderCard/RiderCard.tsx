@@ -52,7 +52,11 @@ export const RiderCard = (props: { rider: Rider }) => {
           <p className={"dropoff-location"}>{`To: ${rider.dropoffLocation}`}</p>
         </div>
         <div className={"right"}>
-          <select className={"status-select"} onChange={(e) => changeStatus(e)}>
+          <select
+            className={"status-select"}
+            value={rider.status}
+            onChange={(e) => changeStatus(e)}
+          >
             <option value={"pending"}>Pending</option>
             <option value={"enroute"}>Enroute</option>
             <option value={"pickedup"}>Picked Up</option>
