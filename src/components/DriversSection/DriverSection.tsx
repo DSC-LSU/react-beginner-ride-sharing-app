@@ -71,7 +71,7 @@ export const DriverSection = () => {
       const newRiders: Array<Rider> = querySnapshot.docs.map<Rider>((doc) => ({
         name: doc.data().name,
         lsuEmail: doc.id,
-        requestPlacedTime: doc.data().requestPlacedTime.seconds,
+        requestPlacedTime: doc.data().requestPlacedTime.seconds * 1000,
         pickupLocation: doc.data().pickupLocation,
         dropoffLocation: doc.data().dropoffLocation,
         status: doc.data().status,
