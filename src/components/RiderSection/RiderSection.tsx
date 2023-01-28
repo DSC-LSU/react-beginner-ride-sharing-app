@@ -3,6 +3,7 @@ import React, { useId } from "react";
 import "./RiderSection.css";
 import { doc, setDoc } from "firebase/firestore";
 import { firebaseDb } from "../../backend/firebase";
+import { Rider } from "../../types/all_types";
 
 const LabeledInput = (props: {
   formId: string;
@@ -47,9 +48,9 @@ export const RiderSection = () => {
 
     const newObject = {
       name,
-      reqrequestPlacedTime: new Date().getTime(),
+      requestPlacedTime: new Date().getTime(),
       pickupLocation: pickup,
-      dropdoffLocation: dropdoff,
+      dropoffLocation: dropdoff,
       status: "pending",
     };
 
