@@ -1,62 +1,44 @@
 .RiderSection .request-ride-form {
-    display: flex;
-    flex-direction: column;
-    max-width: inherit;
-    /*width: 100vw;*/
-    row-gap: 20px;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  max-width: inherit;
+  row-gap: 20px;
+  align-items: center;
 }
 
 .RiderSection .request-ride-form .input-container {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    row-gap: 5px;
-    max-width: inherit;
-
-    /*align-items: stretch;*/
-    /*width: inherit;*/
-    /*max-width: 600px;*/
-    /*row-gap: 20px;*/
-    /*padding: 0;*/
-    /*list-style-type: none;*/
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  row-gap: 5px;
+  max-width: inherit;
 }
 
 .RiderSection .request-ride-form .input-container input[type="text"] {
-    height: 2em;
-    /*font-size: 1.2em;*/
-    width: 100vw;
-    max-width: inherit;
+  height: 2em;
+  width: 100vw;
+  max-width: inherit;
 }
 
-/*.RiderSection .request-ride-form .input-container input[type="submit"],*/
-/*.RiderSection .request-ride-form .input-container label {*/
-/*    width: 100vw;*/
-/*    max-width: inherit;*/
-/*}*/
-
-
-
 .RiderSection .request-ride-form input[type="submit"] {
-    padding: 10px 20px;
-    background-color: var(--color-secondary);
-    border: none;
-    border-radius: 20px;
-    color: white;
-    /*font-size: 1.2em;*/
-    font-weight: 900;
-    box-shadow: 0 0 10px #f3f4f6;
-    cursor: pointer;
+  padding: 10px 20px;
+  background-color: var(--color-secondary);
+  border: none;
+  border-radius: 20px;
+  color: white;
+  font-weight: 900;
+  box-shadow: 0 0 10px #f3f4f6;
+  cursor: pointer;
 
-    transition-duration: 250ms;
+  transition-duration: 250ms;
 }
 
 .RiderSection .request-ride-form input[type="submit"]:hover {
-    box-shadow: 0 0 20px #f3f4f6;
-    transform: scale(1.1);
+  box-shadow: 0 0 20px #f3f4f6;
+  transform: scale(1.1);
 }
 
 .RiderSection .request-ride-form input[type="submit"]:active {
-    box-shadow: 0 0 20px #f3f4f6;
-    transform: scale(1.2);
+  box-shadow: 0 0 20px #f3f4f6;
+  transform: scale(1.2);
 }

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import "./Header.css";
 import {
   GoogleAuthProvider,
@@ -16,39 +16,21 @@ type HeaderProps = {
 export const Header = (props: HeaderProps) => {
   const signIn = () => {
     const provider = new GoogleAuthProvider();
-    signInWithPopup(firebaseAuth, provider)
-      .then(() => console.log("signed in"))
-      .catch((error) => {
-        console.error("error", error);
-        alert("error signing in");
-      });
-    console.log("Singing in ....");
+    signInWithPopup(firebaseAuth, provider).catch((error) => {
+      console.error("sign in error: ", error);
+      alert("error signing in");
+    });
   };
 
   useEffect(() => {
-    console.log("HERE");
-    firebaseAuth.onAuthStateChanged((user) => {
-      props.setUser(user);
-
-      if (user) {
-        console.log("signed in user", user);
-      } else {
-        console.log("no user");
-      }
-    });
+    firebaseAuth.onAuthStateChanged(props.setUser);
   }, []);
 
   const signOut = () => {
-    firebaseSignOut(firebaseAuth)
-      .then(() => {
-        // Sign-out successful.
-        console.log("sign out successful");
-        props.setUser(null);
-      })
-      .catch((error) => {
-        // An error happened.
-        console.error("sign out error", error);
-      });
+    firebaseSignOut(firebaseAuth).catch((error) => {
+      console.error("sign out error: ", error);
+      alert("error signing out");
+    });
   };
 
   return (

@@ -1,37 +1,33 @@
 .custom-tabs {
-    display: flex;
-    column-gap: 10px;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-top: 20px;
-    width: inherit;
-    max-width: 400px;
-    border-radius: 20px;
-    padding: 10px;
-    background-color: #eeeeee;
+  display: flex;
+  column-gap: 10px;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 20px;
+  width: inherit;
+  max-width: 400px;
+  border-radius: 20px;
+  padding: 10px;
+  background-color: #eeeeee;
 }
 
 .custom-tabs > * {
-    flex: 1;
+  flex: 1;
 
-    cursor: pointer;
-    /*background-color: #eee;*/
-    /*border: none;*/
-    padding: 10px;
-    border-radius: 20px;
-    border: 5px solid transparent;
-    background-color: inherit;
-    user-select: none;
-    font-size: 1.1em;
-    font-weight: bold;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 20px;
+  border: 5px solid transparent;
+  background-color: inherit;
+  user-select: none;
+  font-size: 1.1em;
+  font-weight: bold;
 }
 
 .custom-tabs > *[data-selected="true"] {
-    /*background-color: #ccc;*/
-    border-color: rgba(255, 120, 0, 1);
+  border-color: rgba(255, 120, 0, 1);
 }
 
 .custom-tabs > *:hover[data-selected="false"] {
-    /*background-color: #ccc;*/
-    border-color: rgba(255, 120, 0, 0.18);
+  border-color: rgba(255, 120, 0, 0.18);
 }

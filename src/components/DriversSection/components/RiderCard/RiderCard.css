@@ -4,7 +4,6 @@
   align-items: center;
   justify-content: center;
   padding: 0 20px;
-  /*margin: 0 auto;*/
   max-width: 1200px;
   border: 1px solid #999;
   border-radius: 5px;
@@ -25,12 +24,10 @@
 }
 
 .rider-card .row-1 .left .name {
-  /*font-size: 1.5em;*/
   font-weight: 500;
 }
 
 .rider-card .row-1 .right .status {
-  /*font-size: 1.5em;*/
   font-weight: 500;
   padding: 5px;
   border-radius: 5px;
@@ -63,7 +60,6 @@
 }
 
 .rider-card .row-2 {
-  /* flex-direction: column; */
   align-items: center;
 }
 

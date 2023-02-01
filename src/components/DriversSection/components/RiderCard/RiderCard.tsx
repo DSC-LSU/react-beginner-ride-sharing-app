@@ -1,36 +1,19 @@
 import { Rider } from "../../../../types/all_types";
 import "./RiderCard.css";
 import { firebaseDb } from "../../../../backend/firebase";
-import { getDatabase, ref, child, push, update } from "firebase/database";
 import { doc, updateDoc } from "firebase/firestore";
 import React from "react";
-// import firebaseDbMethods from "firebase/database";
 
 export const RiderCard = (props: { rider: Rider }) => {
   const { rider } = props;
 
   const changeStatus = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    // const newStatus = e?.target.value;
-    // if (newStatus) {
-    //   firebaseDb
-    //     .collection("riders")
-    //     .doc(rider.lsuEmail)
-    //     .update({ status: newStatus });
-    // }
-
-    console.log("CLICKED", e.target.value);
-
     const newObject = {
       status: e.target.value,
     };
 
     const ref = doc(firebaseDb, "riders", rider.lsuEmail);
     updateDoc(ref, newObject);
-
-    // const path = "/riders/jdoe1@lsu.edu";
-    // const objectRef = child(ref(firebaseDb), path);
-
-    // update(objectRef, newObject);
   };
 
   return (

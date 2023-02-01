@@ -14,7 +14,6 @@ const LabeledInput = (props: {
   autoComplete?: string;
   disabled?: boolean;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
-  // onInput?: React.FormEventHandler<HTMLInputElement>;
 }) => {
   const {
     formId,
@@ -58,8 +57,6 @@ export const RiderFillFormSection = (props: RiderFillFormSectionProps) => {
   const [dropdoff, setDropdoff] = React.useState("");
 
   const requestRide = () => {
-    // console.log("CLICKED", e.target.value);
-
     if (props.user == null || props.user.email == null) return;
 
     const newObject = {
@@ -71,9 +68,6 @@ export const RiderFillFormSection = (props: RiderFillFormSectionProps) => {
     };
 
     setDoc(doc(firebaseDb, "riders", props.user?.email), newObject);
-
-    // const ref = doc(firebaseDb, "riders", rider.lsuEmail);
-    // updateDoc(ref, newObject);
   };
 
   const requestRideForm = () => {
@@ -128,6 +122,3 @@ export const RiderFillFormSection = (props: RiderFillFormSectionProps) => {
     />
   );
 };
-
-//this code is basically storing all details of formId, name, label, placeholder, value, autoComplete, onChange
-//I must take all the names user enters from here and the details on the same page

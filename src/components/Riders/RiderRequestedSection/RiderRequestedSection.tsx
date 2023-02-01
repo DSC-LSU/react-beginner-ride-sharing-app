@@ -1,39 +1,15 @@
-import React from "react";
-// import "../../DriversSection/components/RiderCard/RiderCard.css";
 import "../../DriversSection/components/RiderCard/RiderCard.css";
 import "./RiderRequestedSection.css";
 
-import { Rider, RiderRequestedDetails } from "../../../types/all_types";
+import { RiderRequestedDetails } from "../../../types/all_types";
 import { PageSection } from "../../PageSection/PageSection";
-import { useState } from "react";
-import { useEffect } from "react";
-import {
-  collection,
-  query,
-  orderBy,
-  onSnapshot,
-  deleteDoc,
-  doc,
-} from "firebase/firestore";
+import { deleteDoc, doc } from "firebase/firestore";
 import { firebaseDb } from "../../../backend/firebase";
 
 export const RiderRequestedSection = (props: {
   riderRequested: RiderRequestedDetails;
 }) => {
   const { riderRequested } = props;
-
-  const changeStatus = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    console.log("CLICKED", e.target.value);
-
-    const newObject = {
-      status: e.target.value,
-    };
-  };
-
-  console.log(
-    "date",
-    new Date(riderRequested.requestPlacedTime).toLocaleTimeString()
-  );
 
   const deleteRideRequest = () => {
     deleteDoc(doc(firebaseDb, "riders", riderRequested.lsuEmail));
@@ -65,16 +41,6 @@ export const RiderRequestedSection = (props: {
         </div>
         <div className={"right"}>
           <button onClick={deleteRideRequest}>Cancel Request</button>
-          {/* <select
-      className={"status-select"}
-      value={riderRequested.status}
-      onChange={(e) => changeStatus(e)}
-    >
-      <option value={"pending"}>Pending</option>
-      <option value={"enroute"}>Enroute</option>
-      <option value={"pickedup"}>Picked Up</option>
-      <option value={"droppedoff"}>Dropped Off</option>
-    </select> */}
         </div>
       </div>
     </div>
