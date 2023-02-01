@@ -62,14 +62,14 @@ export const RiderSection = (props: RiderSectionProps) => {
       console.log("data", data.data());
     });
 
-    return callback;
+    return callback();
   }, []);
 
   if (props.user == null) {
     return <RiderNotSignedInSection />;
   }
 
-  return riderRequestedDetails ? (
+  return riderRequestedDetails != null ? (
     <RiderRequestedSection riderRequested={riderRequestedDetails} />
   ) : (
     <RiderFillFormSection user={props.user} setUser={props.setUser} />
