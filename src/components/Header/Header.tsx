@@ -8,9 +8,12 @@ import {
 } from "firebase/auth";
 import { firebaseAuth } from "../../backend/firebase";
 
-export const Header = () => {
-  const [user, setUser] = React.useState<User | null>(null);
+type HeaderProps = {
+  user: User | null;
+  setUser: (user: User | null) => void;
+};
 
+export const Header = (props: HeaderProps) => {
   const signIn = () => {
     const provider = new GoogleAuthProvider();
     signInWithPopup(firebaseAuth, provider)
@@ -25,7 +28,7 @@ export const Header = () => {
   useEffect(() => {
     console.log("HERE");
     firebaseAuth.onAuthStateChanged((user) => {
-      setUser(user);
+      props.setUser(user);
 
       if (user) {
         console.log("signed in user", user);
@@ -40,7 +43,7 @@ export const Header = () => {
       .then(() => {
         // Sign-out successful.
         console.log("sign out successful");
-        setUser(null);
+        props.setUser(null);
       })
       .catch((error) => {
         // An error happened.
@@ -55,8 +58,12 @@ export const Header = () => {
         <p className={"subtitle"}>Ride sharing app for LSU tigers</p>
       </div>
       <div className={"right"}>
-        <button onClick={() => (user ? signOut() : signIn())}>
-          {user && user.photoURL ? <img src={user.photoURL} /> : "🐯"}
+        <button onClick={() => (props.user ? signOut() : signIn())}>
+          {props.user && props.user.photoURL ? (
+            <img src={props.user.photoURL} />
+          ) : (
+            "🐯"
+          )}
         </button>
       </div>
     </header>

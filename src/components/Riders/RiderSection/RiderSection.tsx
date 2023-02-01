@@ -1,118 +1,70 @@
-import { PageSection } from "../../PageSection/PageSection";
-import React, { useId } from "react";
-import "./RiderSection.css";
-import { doc, setDoc } from "firebase/firestore";
+import React from "react";
+import { RiderFillFormSection } from "../RiderFillFormSection/RiderFillFormSection";
+import { RiderRequestedSection } from "../RiderRequestedSection/RiderRequestedSection";
+import {
+  collection,
+  doc,
+  onSnapshot,
+  orderBy,
+  query,
+} from "@firebase/firestore";
 import { firebaseDb } from "../../../backend/firebase";
+import { Rider, RiderRequestedDetails } from "../../../types/all_types";
+import { User } from "@firebase/auth";
 
-const LabeledInput = (props: {
-  formId: string;
-  name: string;
-  label: string;
-  placeholder?: string;
-  value?: string;
-  autoComplete?: string;
-  onChange?: React.ChangeEventHandler<HTMLInputElement>;
-  // onInput?: React.FormEventHandler<HTMLInputElement>;
-}) => {
-  const { formId, name, label, placeholder, value, autoComplete, onChange } =
-    props;
-  const inputId = `${formId}-${name}`;
-
-  return (
-    <div className={"input-container"}>
-      <label htmlFor={inputId}>{label}</label>
-      <input
-        id={inputId}
-        name={name}
-        autoComplete={autoComplete}
-        type={"text"}
-        placeholder={placeholder}
-        value={value}
-        onChange={onChange}
-      />
-    </div>
-  );
+type RiderSectionProps = {
+  user: User | null;
+  setUser: (user: User | null) => void;
 };
 
-export const RiderSection = () => {
-  const formId = useId(); 
+export const RiderSection = (props: RiderSectionProps) => {
+  const [riderRequestedDetails, setRiderRequestedDetails] =
+    React.useState<RiderRequestedDetails | null>(null);
 
+  React.useEffect(() => {
+    if (props.user == null || props.user.email == null) return;
 
-  const [name, setName] = React.useState("");
-  const [email, setEmail] = React.useState("");
-  const [pickup, setPickup] = React.useState("");
-  const [dropdoff, setDropdoff] = React.useState("");
+    // const q = query(
+    // //   collection(firebaseDb, "riders", props.user.email),
+    //   ,
+    //   orderBy("requestPlacedTime", "desc")
+    // );
+    const docQuery = doc(firebaseDb, "riders", props.user.email);
+    onSnapshot(docQuery, (data) => {
+      const jsonData = data.data();
+      console.log("jsonData", jsonData);
 
+      if (jsonData != null) {
+        const newRiderRequestedDetails: RiderRequestedDetails = {
+          name: jsonData.name,
+          lsuEmail: data.id,
+          requestPlacedTime: jsonData.requestPlacedTime.seconds * 1000,
+          pickupLocation: jsonData.pickupLocation,
+          dropoffLocation: jsonData.dropoffLocation,
+          status: jsonData.status,
+        };
+        setRiderRequestedDetails(newRiderRequestedDetails);
+      } else {
+        setRiderRequestedDetails(null);
+      }
 
-  const requestRide = () => {
-    // console.log("CLICKED", e.target.value);
+      //   const newRiders: Array<Rider> = querySnapshot.docs.map<Rider>((doc) => ({
+      //     name: doc.data().name,
+      //     lsuEmail: doc.id,
+      //     requestPlacedTime: doc.data().requestPlacedTime.seconds * 1000,
+      //     pickupLocation: doc.data().pickupLocation,
+      //     dropoffLocation: doc.data().dropoffLocation,
+      //     status: doc.data().status,
+      //   }));
+      //   console.log("newRiders", querySnapshot.docs[0].data(), newRiders);
+      //   setRiders(newRiders);
+      console.log("data", data.data());
+    });
+  }, []);
 
-    const newObject = {
-      name,
-      reqrequestPlacedTime: new Date().getTime(),
-      pickupLocation: pickup,
-      dropdoffLocation: dropdoff,
-      status: "pending",
-    };
-
-    setDoc(doc(firebaseDb, "riders", email), newObject);
-
-    // const ref = doc(firebaseDb, "riders", rider.lsuEmail);
-    // updateDoc(ref, newObject);
-  };
-
-  const requestRideForm = () => {
-    const onSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
-      e.preventDefault();
-    };
-
-    return (
-      <form className={"request-ride-form"} onSubmit={onSubmit}>
-        <LabeledInput
-          formId={formId}
-          name={"name"}
-          label={"Name"}
-          autoComplete={"name"}
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <LabeledInput
-          formId={formId}
-          name={"lsuEmail"}
-          label={"LSU Email"}
-          autoComplete={"email"}
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <LabeledInput
-          formId={formId}
-          name={"from"}
-          label={"Pickup Location"}
-          autoComplete={"street-address"}
-          value={pickup}
-          onChange={(e) => setPickup(e.target.value)}
-        />
-        <LabeledInput
-          formId={formId}
-          name={"to"}
-          label={"Dropoff Location"}
-          autoComplete={"street-address"}
-          value={dropdoff}
-          onChange={(e) => setDropdoff(e.target.value)}
-        />
-        <input type={"submit"} value={"Request Ride"} onClick={requestRide} />
-      </form>
-    );
-  };
-
-  return (
-    <PageSection
-      className={"RiderSection"}
-      sectionHeader={"Request a ride"}
-      children={requestRideForm()}
-    />
+  return riderRequestedDetails ? (
+    <RiderRequestedSection riderRequested={riderRequestedDetails} />
+  ) : (
+    <RiderFillFormSection user={props.user} setUser={props.setUser} />
   );
 };
-
-//this code is basically storing all details of formId, name, label, placeholder, value, autoComplete, onChange
-//I must take all the names user enters from here and the details on the same page

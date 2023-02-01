@@ -1,11 +1,17 @@
-import React, {useEffect} from 'react';
-import './App.css';
-import {CustomTabs} from "./components/CustomTabs/CustomTabs";
-import {DriverSection} from "./components/DriversSection/DriverSection";
-import { RiderSection } from './components/Riders/RiderSection/RiderSection';
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import {firebaseAuth} from "./backend/firebase";
-import {Header} from "./components/Header/Header";
+import React, { useEffect } from "react";
+import "./App.css";
+import { CustomTabs } from "./components/CustomTabs/CustomTabs";
+import { DriverSection } from "./components/DriversSection/DriverSection";
+import { RiderSection } from "./components/Riders/RiderSection/RiderSection";
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  User,
+} from "firebase/auth";
+import { firebaseAuth } from "./backend/firebase";
+import { Header } from "./components/Header/Header";
+import { RiderRequestedSection } from "./components/Riders/RiderRequestedSection/RiderRequestedSection";
 // import {RiderRequestedSection} from './components/Riders/RiderRequestedSection/RiderRequestedSection';
 
 function App() {
@@ -21,6 +27,7 @@ function App() {
   // }
 
   const [selectedTab, setSelectedTab] = React.useState(0);
+  const [user, setUser] = React.useState<User | null>(null);
 
   // useEffect(() => {
   //   console.log("signin with popup");
@@ -50,10 +57,18 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      <Header user={user} setUser={setUser} />
       <main>
-        <CustomTabs tabs={['Driver', 'Rider']} selectedTab={selectedTab} onTabSelected={setSelectedTab}/>
-        {selectedTab === 0 ? <DriverSection/> : <RiderSection/>}
+        <CustomTabs
+          tabs={["Driver", "Rider"]}
+          selectedTab={selectedTab}
+          onTabSelected={setSelectedTab}
+        />
+        {selectedTab === 0 ? (
+          <DriverSection />
+        ) : (
+          <RiderSection user={user} setUser={setUser} />
+        )}
         {/* <RiderRequestedSection/> */}
       </main>
     </div>

@@ -1,11 +1,15 @@
 * {
-    transition-duration: 100ms;
+  transition-duration: 100ms;
 }
 
 :root {
-    --color-primary: #222;
-    --color-secondary: rgba(255, 120, 0, 1);
+  --color-primary: #222;
+  --color-secondary: rgba(255, 120, 0, 1);
 }
+
+/* html {
+  scrollbar-gutter: stable;
+} */
 
 /*.custom-checkbox-label {*/
 /*    display: flex;*/
@@ -31,18 +35,22 @@
 /*}*/
 
 main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    /*height: 100vh;*/
-    width: 100vw;
-    row-gap: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /*height: 100vh;*/
+  width: 100vw;
+  row-gap: 20px;
+}
+
+main .App {
+  scrollbar-gutter: stable;
 }
 
 @media (max-width: 600px) {
-    .App .left .title {
-        font-size: 2em;
-        font-weight: 600;
-    }
+  .App .left .title {
+    font-size: 2em;
+    font-weight: 600;
+  }
 }
