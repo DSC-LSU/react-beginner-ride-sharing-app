@@ -64,7 +64,7 @@ export const RiderRequestedSection = (props: {
           >{`To: ${riderRequested.dropoffLocation}`}</p>
         </div>
         <div className={"right"}>
-          <button onClick={deleteRideRequest}>Cancel</button>
+          <button onClick={deleteRideRequest}>Cancel Request</button>
           {/* <select
       className={"status-select"}
       value={riderRequested.status}

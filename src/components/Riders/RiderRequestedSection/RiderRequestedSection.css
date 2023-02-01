@@ -8,3 +8,20 @@
   padding: 0;
   list-style-type: none;
 }
+
+.RiderRequestedSection .riders .rider-card .row-2 .right button {
+  background-color: rgb(240, 240, 240);
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  color: #000;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 5px 10px;
+  cursor: pointer;
+  /* transition: all 0.2s ease-in-out; */
+}
+
+.RiderRequestedSection .riders .rider-card .row-2 .right button:hover {
+  /* transform: scale(1.05); */
+  background-color: rgb(230, 230, 230);
+}
