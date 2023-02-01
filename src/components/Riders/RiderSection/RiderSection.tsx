@@ -11,6 +11,7 @@ import {
 import { firebaseDb } from "../../../backend/firebase";
 import { Rider, RiderRequestedDetails } from "../../../types/all_types";
 import { User } from "@firebase/auth";
+import { RiderNotSignedInSection } from "../RiderNotSignedInSection/RiderNotSignedInSection";
 
 type RiderSectionProps = {
   user: User | null;
@@ -30,7 +31,7 @@ export const RiderSection = (props: RiderSectionProps) => {
     //   orderBy("requestPlacedTime", "desc")
     // );
     const docQuery = doc(firebaseDb, "riders", props.user.email);
-    onSnapshot(docQuery, (data) => {
+    const callback = onSnapshot(docQuery, (data) => {
       const jsonData = data.data();
       console.log("jsonData", jsonData);
 
@@ -60,7 +61,13 @@ export const RiderSection = (props: RiderSectionProps) => {
       //   setRiders(newRiders);
       console.log("data", data.data());
     });
+
+    return callback;
   }, []);
+
+  if (props.user == null) {
+    return <RiderNotSignedInSection />;
+  }
 
   return riderRequestedDetails ? (
     <RiderRequestedSection riderRequested={riderRequestedDetails} />
