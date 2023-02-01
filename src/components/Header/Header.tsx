@@ -1,52 +1,64 @@
-import React, {useEffect} from "react";
-import './Header.css';
-import {GoogleAuthProvider, signInWithPopup} from "firebase/auth";
-import {firebaseAuth} from "../../backend/firebase";
+import React, { useEffect } from "react";
+import "./Header.css";
+import {
+  GoogleAuthProvider,
+  signInWithPopup,
+  signOut as firebaseSignOut,
+  User,
+} from "firebase/auth";
+import { firebaseAuth } from "../../backend/firebase";
 
 export const Header = () => {
+  const [user, setUser] = React.useState<User | null>(null);
 
+  const signIn = () => {
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(firebaseAuth, provider)
+      .then(() => console.log("signed in"))
+      .catch((error) => {
+        console.error("error", error);
+        alert("error signing in");
+      });
+    console.log("Singing in ....");
+  };
 
-  // const signIn = () => {
-  //   const provider = new GoogleAuthProvider();
-  //   signInWithPopup(firebaseAuth, provider)
-  //     .then((result) => {
-  //       // This gives you a Google Access Token. You can use it to access the Google API.
-  //       const credential = GoogleAuthProvider.credentialFromResult(result);
-  //       const token = credential?.accessToken;
-  //       // The signed-in user info.
-  //       const user = result.user;
-  //       console.log('user', user);
-  //       // ...
-  //     }).catch((error) => {
-  //     // Handle Errors here.
-  //     const errorCode = error.code;
-  //     const errorMessage = error.message;
-  //     // The email of the user's account used.
-  //     const email = error.email;
-  //     // The AuthCredential type that was used.
-  //     const credential = GoogleAuthProvider.credentialFromError(error);
-  //     // ...
-  //     console.error('error', error);
-  //   });
-  // }
+  useEffect(() => {
+    console.log("HERE");
+    firebaseAuth.onAuthStateChanged((user) => {
+      setUser(user);
 
-  // useEffect(() => {
-  //   firebaseAuth.onAuthStateChanged((user) => {
-  //     if (user) {
-  //       console.log('signed in user', user);
-  //       } else {
-  //       console.log('no user');
-  //     }
-  //   });
-  // }, []);
+      if (user) {
+        console.log("signed in user", user);
+      } else {
+        console.log("no user");
+      }
+    });
+  }, []);
 
-  return <header className="header">
-    <div className={'left'}>
-      <p className={'title'}>Geaux Rides 🐯</p>
-      <p className={'subtitle'}>Ride sharing app for LSU tigers</p>
-    </div>
-    <div className={'right'}>
-      {/*<button onClick={() => console.log('CLICKED')}>Sign in</button>*/}
-    </div>
-  </header>
-}
+  const signOut = () => {
+    firebaseSignOut(firebaseAuth)
+      .then(() => {
+        // Sign-out successful.
+        console.log("sign out successful");
+        setUser(null);
+      })
+      .catch((error) => {
+        // An error happened.
+        console.error("sign out error", error);
+      });
+  };
+
+  return (
+    <header className="header">
+      <div className={"left"}>
+        <p className={"title"}>Geaux Rides 🐯</p>
+        <p className={"subtitle"}>Ride sharing app for LSU tigers</p>
+      </div>
+      <div className={"right"}>
+        <button onClick={() => (user ? signOut() : signIn())}>
+          {user && user.photoURL ? <img src={user.photoURL} /> : "🐯"}
+        </button>
+      </div>
+    </header>
+  );
+};
