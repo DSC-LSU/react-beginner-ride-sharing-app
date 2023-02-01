@@ -1,3 +1,5 @@
+import internal from "stream"
+
 export type Rider = {
   name: string,
   lsuEmail: string,
@@ -6,3 +8,13 @@ export type Rider = {
   dropoffLocation: string,
   status: 'pending' | 'enroute' | 'pickedup' | 'droppedoff',
 }
+export type RiderRequestedDetails = {
+  name: string,
+  riderRequestedCellNumber:number,
+  requestPlacedTime: number,
+  pickupLocation: string,
+  dropoffLocation: string,
+  status: 'pending' | 'enroute' | 'pickedup' | 'droppedoff',
+  cancelRide:{},
+}
+

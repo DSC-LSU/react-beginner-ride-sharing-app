@@ -12,3 +12,10 @@
 .PageSection .section-header {
     font-size: 1.8em;
 }
+
+@media (max-width: 480px) {
+    .PageSection{
+    padding: 5px 10px;
+    font-size: 12px;
+}
+  }

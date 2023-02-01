@@ -8,6 +8,7 @@ export type PageSectionProps = {
 }
 
 export const PageSection = (props: PageSectionProps) => {
+  /* Destructuring the props object. */
   const {className, sectionHeader, children} = props;
 
   const classNames = ['PageSection'];

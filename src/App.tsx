@@ -2,10 +2,11 @@ import React, {useEffect} from 'react';
 import './App.css';
 import {CustomTabs} from "./components/CustomTabs/CustomTabs";
 import {DriverSection} from "./components/DriversSection/DriverSection";
-import {RiderSection} from "./components/RiderSection/RiderSection";
+import { RiderSection } from './components/Riders/RiderSection/RiderSection';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import {firebaseAuth} from "./backend/firebase";
 import {Header} from "./components/Header/Header";
+// import {RiderRequestedSection} from './components/Riders/RiderRequestedSection/RiderRequestedSection';
 
 function App() {
   // const _CustomToggle = () => {
@@ -53,6 +54,7 @@ function App() {
       <main>
         <CustomTabs tabs={['Driver', 'Rider']} selectedTab={selectedTab} onTabSelected={setSelectedTab}/>
         {selectedTab === 0 ? <DriverSection/> : <RiderSection/>}
+        {/* <RiderRequestedSection/> */}
       </main>
     </div>
   );
