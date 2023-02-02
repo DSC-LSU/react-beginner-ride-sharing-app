@@ -8,16 +8,11 @@ export const RiderCard = (props: { rider: Rider }) => {
   const { rider } = props;
 
   const changeStatus = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    // TODO 4: newObject = {status: e.target.value}
     const newObject = {
       status: e.target.value,
     };
 
-    // TODO 5: const ref = doc(firebaseDb, "riders", rider.email);
     const ref = doc(firebaseDb, "riders", rider.email);
-    // TODO 6: updateDoc(ref, newObject).catch(console.error and alert)
-    // TODO 6.1: console.error("error updating rider status: ", error);
-    // TODO 6.2: alert("Are you not signed in or trying to edit a rider that's not you?: " + error);
     updateDoc(ref, newObject).catch((error) => {
       console.error("error updating rider status: ", error);
       alert(
