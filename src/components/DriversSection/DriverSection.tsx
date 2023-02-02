@@ -14,7 +14,6 @@ export const DriverSection = () => {
       collection(firebaseDb, "riders"),
       orderBy("requestPlacedTime", "desc")
     );
-
     onSnapshot(q, (querySnapshot) => {
       const newRiders: Array<Rider> = querySnapshot.docs.map<Rider>((doc) => ({
         name: doc.data().name,
@@ -28,9 +27,21 @@ export const DriverSection = () => {
     });
   }, []);
 
-  const riderCards = () => <ul className={"riders"}></ul>;
+  const riderCards = () => (
+    <ul className={"riders"}>
+      {/* TODO 1: riders.map */}
+      {/* TODO 1.1: <li key={rider.email}> */}
+      {/* TODO 1.2: <RiderCard rider={rider} /> */}
 
-  console.log(riders);
+      {riders.map((rider) => (
+        <li key={rider.email}>
+          <RiderCard rider={rider} />
+        </li>
+      ))}
+    </ul>
+  );
+
+  // TODO 3: Remove console.log
 
   return (
     <PageSection
