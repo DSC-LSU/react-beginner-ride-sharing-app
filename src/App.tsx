@@ -7,7 +7,7 @@ import { User } from "firebase/auth";
 import { Header } from "./components/Header/Header";
 
 function App() {
-  // TODO 1: // TODO 1: Create a state variable selectedTab and a setter setSelectedTab
+  // TODO 1: Create a state variable selectedTab and a setter setSelectedTab
   const [selectedTab, setSelectedTab] = React.useState(0);
 
   const [user, setUser] = React.useState<User | null>(null);
