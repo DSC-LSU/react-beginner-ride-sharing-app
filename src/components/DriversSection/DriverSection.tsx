@@ -29,10 +29,6 @@ export const DriverSection = () => {
 
   const riderCards = () => (
     <ul className={"riders"}>
-      {/* TODO 1: riders.map */}
-      {/* TODO 1.1: <li key={rider.email}> */}
-      {/* TODO 1.2: <RiderCard rider={rider} /> */}
-
       {riders.map((rider) => (
         <li key={rider.email}>
           <RiderCard rider={rider} />
@@ -40,8 +36,6 @@ export const DriverSection = () => {
       ))}
     </ul>
   );
-
-  // TODO 3: Remove console.log
 
   return (
     <PageSection
