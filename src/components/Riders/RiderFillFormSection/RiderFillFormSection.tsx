@@ -29,18 +29,6 @@ const LabeledInput = (props: {
 
   return (
     <div className={"input-container"}>
-      {/* TODO 4: Add <label htmlFor={inputId}>{label}</label> */}
-      {/* TODO 5: Add <input
-        id={inputId}
-        name={name}
-        autoComplete={autoComplete}
-        type={"text"}
-        placeholder={placeholder}
-        value={value}
-        onChange={onChange}
-        disabled={disabled}
-      /> */}
-
       <label htmlFor={inputId}>{label}</label>
       <input
         id={inputId}
@@ -64,7 +52,6 @@ type RiderFillFormSectionProps = {
 export const RiderFillFormSection = (props: RiderFillFormSectionProps) => {
   const formId = useId();
 
-  // TODO 1: Add state for name, pickup, and dropoff
   const [name, setName] = React.useState("");
   const [pickup, setPickup] = React.useState("");
   const [dropdoff, setDropdoff] = React.useState("");
@@ -78,8 +65,6 @@ export const RiderFillFormSection = (props: RiderFillFormSectionProps) => {
 
     return (
       <form className={"request-ride-form"} onSubmit={onSubmit}>
-        {/* TODO 2: Call <LabeledInput /> for name, email, pickup, and dropoff */}
-        {/* TODO 3: <input type="submit"/> */}
         <LabeledInput
           formId={formId}
           name={"name"}
