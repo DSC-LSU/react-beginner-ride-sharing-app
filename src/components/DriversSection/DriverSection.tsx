@@ -32,12 +32,6 @@ export const DriverSection = () => {
       {/* TODO 1: riders.map */}
       {/* TODO 1.1: <li key={rider.email}> */}
       {/* TODO 1.2: <RiderCard rider={rider} /> */}
-
-      {riders.map((rider) => (
-        <li key={rider.email}>
-          <RiderCard rider={rider} />
-        </li>
-      ))}
     </ul>
   );
 
