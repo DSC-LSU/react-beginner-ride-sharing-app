@@ -7,7 +7,6 @@ import { User } from "firebase/auth";
 import { Header } from "./components/Header/Header";
 
 function App() {
-  // TODO 1: Create a state variable selectedTab and a setter setSelectedTab
   const [selectedTab, setSelectedTab] = React.useState(0);
 
   const [user, setUser] = React.useState<User | null>(null);
@@ -15,10 +14,6 @@ function App() {
   return (
     <div className="App">
       <Header user={user} setUser={setUser} />
-
-      {/* TODO 2: <main> */}
-      {/* TODO 2.1: <CustomTabs tabs={["Driver", "Rider"]} selectedTab={selectedTab} onTabSelected={setSelectedTab}/> */}
-      {/* TODO 2.1.1: {selectedTab === 0 ? <DriverSection /> : <RiderSection />} */}
 
       <main>
         <CustomTabs
