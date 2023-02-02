@@ -17,5 +17,10 @@ export const RiderSection = (props: RiderSectionProps) => {
     // Listen for riderRequestedDetails changes
   }, []);
 
-  return <div></div>;
+  return (
+    <div>
+      {/* TODO 2: <RiderFillFormSection user={props.user} setUser={props.setUser} /> */}
+      <RiderFillFormSection user={props.user} setUser={props.setUser} />
+    </div>
+  );
 };

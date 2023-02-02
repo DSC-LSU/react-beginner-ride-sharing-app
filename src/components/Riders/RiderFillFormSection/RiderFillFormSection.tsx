@@ -48,5 +48,18 @@ export const RiderFillFormSection = (props: RiderFillFormSectionProps) => {
     return <form className={"request-ride-form"} onSubmit={onSubmit}></form>;
   };
 
-  return <div></div>;
+  // TODO 3: return <PageSection>
+  // TODO 3.1: className={"RiderSection"}
+  // TODO 3.2: sectionHeader={"Request a ride"}
+  // TODO 3.3: sectionSubHeader={""}
+  // TODO 3.4: children={requestRideForm()}
+
+  return (
+    <PageSection
+      className={"RiderSection"}
+      sectionHeader={"Request a ride"}
+      sectionSubHeader={""}
+      children={requestRideForm()}
+    />
+  );
 };
