@@ -17,24 +17,14 @@ export const Header = (props: HeaderProps) => {
   const signIn = () => {
     // TODO 1: provider = GoogleAuthProvider
     // TODO 2: signInWithPopup.catch(console.error & alert)
-    const provider = new GoogleAuthProvider();
-    signInWithPopup(firebaseAuth, provider).catch((error) => {
-      console.error("sign in error: ", error);
-      alert("error signing in");
-    });
   };
 
   useEffect(() => {
     // TODO 3: firebaseAuth.onAuthStateChanged(props.setUser)
-    firebaseAuth.onAuthStateChanged(props.setUser);
   }, []);
 
   const signOut = () => {
     // TODO 4: firebaseSignOut.catch(console.error & alert)
-    firebaseSignOut(firebaseAuth).catch((error) => {
-      console.error("sign out error: ", error);
-      alert("error signing out");
-    });
   };
 
   return (
