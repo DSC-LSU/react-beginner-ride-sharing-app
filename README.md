@@ -1,5 +1,7 @@
 # React Beginner Ride Sharing App
 
+Hosted sample on [react-beginner-ride-sharing-app.gdsclsu.com](https://react-beginner-ride-sharing-app.gdsclsu.com/)
+
 A ride sharing app exclusively for LSU tigers! 🐯
 
 This project is a sample app mainly to help learn beginner level react.
