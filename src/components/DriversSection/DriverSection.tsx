@@ -36,6 +36,7 @@ export const DriverSection = () => {
   );
 
   // TODO 3: Remove console.log
+  console.log(riders);
 
   return (
     <PageSection
