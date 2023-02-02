@@ -56,7 +56,28 @@ export const RiderFillFormSection = (props: RiderFillFormSectionProps) => {
   const [pickup, setPickup] = React.useState("");
   const [dropdoff, setDropdoff] = React.useState("");
 
-  const requestRide = () => {};
+  const requestRide = () => {
+    // TODO 1: if (props.user == null || props.user.email == null) return;
+    if (props.user == null || props.user.email == null) return;
+
+    // TODO 2: const newObject = { ... };
+    // TODO 2.1: name: name,
+    // TODO 2.2: requestPlacedTime: Timestamp.fromDate(new Date()),
+    // TODO 2.3: pickupLocation: pickup,
+    // TODO 2.4: dropoffLocation: dropdoff,
+    // TODO 2.5: status: "pending",
+
+    const newObject = {
+      name,
+      requestPlacedTime: Timestamp.fromDate(new Date()),
+      pickupLocation: pickup,
+      dropoffLocation: dropdoff,
+      status: "pending",
+    };
+
+    // TODO 3: setDoc(doc(firebaseDb, "riders", props.user.email), newObject);
+    setDoc(doc(firebaseDb, "riders", props.user?.email), newObject);
+  };
 
   const requestRideForm = () => {
     const onSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
