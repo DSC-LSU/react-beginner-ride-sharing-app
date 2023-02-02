@@ -19,12 +19,5 @@ export const DriverSection = () => {
   // TODO 1.3: sectionSubHeader="Make sure you're signed in to edit your rider card status"
   // TODO 1.4: children={riderCards()}
 
-  return (
-    <PageSection
-      className={"DriversSection"}
-      sectionHeader={"Here are your rides"}
-      sectionSubHeader="Make sure you're signed in to edit your rider card status"
-      children={riderCards()}
-    />
-  );
+  return <div></div>;
 };

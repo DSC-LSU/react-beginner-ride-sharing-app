@@ -54,12 +54,5 @@ export const RiderFillFormSection = (props: RiderFillFormSectionProps) => {
   // TODO 3.3: sectionSubHeader={""}
   // TODO 3.4: children={requestRideForm()}
 
-  return (
-    <PageSection
-      className={"RiderSection"}
-      sectionHeader={"Request a ride"}
-      sectionSubHeader={""}
-      children={requestRideForm()}
-    />
-  );
+  return <div></div>;
 };
