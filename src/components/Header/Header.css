@@ -5,6 +5,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-sizing: border-box;
 }
 
 h1,
@@ -43,6 +44,7 @@ p {
   cursor: pointer;
   overflow: clip;
   position: relative;
+  /* transform: translate(-50%, 0); */
 }
 
 .header .right button:hover {

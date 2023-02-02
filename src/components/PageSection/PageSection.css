@@ -1,21 +1,19 @@
 .PageSection {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 0 20px;
-    margin: 0 auto;
-    max-width: 600px;
-    width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 600px;
+  width: 100vw;
 }
 
 .PageSection .section-header {
-    font-size: 1.8em;
+  font-size: 1.8em;
 }
 
 @media (max-width: 480px) {
-    .PageSection{
-    padding: 5px 10px;
+  .PageSection {
     font-size: 0.8em;
-}
   }
+}
