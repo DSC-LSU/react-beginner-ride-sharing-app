@@ -14,40 +14,13 @@ type HeaderProps = {
 };
 
 export const Header = (props: HeaderProps) => {
-  const signIn = () => {
-    const provider = new GoogleAuthProvider();
-    signInWithPopup(firebaseAuth, provider).catch((error) => {
-      console.error("sign in error: ", error);
-      alert("error signing in");
-    });
-  };
+  const signIn = () => {};
 
   useEffect(() => {
-    firebaseAuth.onAuthStateChanged(props.setUser);
+    // Listen for auth state changes
   }, []);
 
-  const signOut = () => {
-    firebaseSignOut(firebaseAuth).catch((error) => {
-      console.error("sign out error: ", error);
-      alert("error signing out");
-    });
-  };
+  const signOut = () => {};
 
-  return (
-    <header className="header">
-      <div className={"left"}>
-        <p className={"title"}>Geaux Rides 🐯</p>
-        <p className={"subtitle"}>Ride sharing app for LSU tigers</p>
-      </div>
-      <div className={"right"}>
-        <button onClick={() => (props.user ? signOut() : signIn())}>
-          {props.user && props.user.photoURL ? (
-            <img src={props.user.photoURL} />
-          ) : (
-            "🐯"
-          )}
-        </button>
-      </div>
-    </header>
-  );
+  return <header className="header"></header>;
 };
