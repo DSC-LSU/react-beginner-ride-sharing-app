@@ -30,20 +30,6 @@ export const Header = (props: HeaderProps) => {
 
       {/* TODO 4: <div className={"right"}> */}
       {/* TODO 4.1: Create a button with onClick=signIn()/signOut() and children=🐯/<img src={props.user.photoURL} /> */}
-
-      <div className={"left"}>
-        <p className={"title"}>Geaux Rides 🐯</p>
-        <p className={"subtitle"}>Ride sharing app for LSU tigers</p>
-      </div>
-      <div className={"right"}>
-        <button onClick={() => (props.user ? signOut() : signIn())}>
-          {props.user && props.user.photoURL ? (
-            <img src={props.user.photoURL} />
-          ) : (
-            "🐯"
-          )}
-        </button>
-      </div>
     </header>
   );
 };
