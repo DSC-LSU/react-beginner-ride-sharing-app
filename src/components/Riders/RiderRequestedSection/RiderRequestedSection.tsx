@@ -12,7 +12,7 @@ export const RiderRequestedSection = (props: {
   const { riderRequested } = props;
 
   const deleteRideRequest = () => {
-    deleteDoc(doc(firebaseDb, "riders", riderRequested.lsuEmail));
+    deleteDoc(doc(firebaseDb, "riders", riderRequested.email));
   };
 
   const rideRequestedCard = (
@@ -21,7 +21,7 @@ export const RiderRequestedSection = (props: {
         <div className={"left"}>
           <p
             className={"name"}
-          >{`${riderRequested.name} (${riderRequested.lsuEmail})`}</p>
+          >{`${riderRequested.name} (${riderRequested.email})`}</p>
           <p className={"rider-request-placed-time"}>
             {new Date(riderRequested.requestPlacedTime).toLocaleTimeString()}
           </p>

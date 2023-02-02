@@ -26,7 +26,7 @@ export const RiderSection = (props: RiderSectionProps) => {
       if (jsonData != null) {
         const newRiderRequestedDetails: RiderRequestedDetails = {
           name: jsonData.name,
-          lsuEmail: data.id,
+          email: data.id,
           requestPlacedTime: jsonData.requestPlacedTime.seconds * 1000,
           pickupLocation: jsonData.pickupLocation,
           dropoffLocation: jsonData.dropoffLocation,

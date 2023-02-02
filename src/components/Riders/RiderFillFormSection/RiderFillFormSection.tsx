@@ -87,8 +87,8 @@ export const RiderFillFormSection = (props: RiderFillFormSectionProps) => {
         />
         <LabeledInput
           formId={formId}
-          name={"lsuEmail"}
-          label={"LSU Email"}
+          name={"email"}
+          label={"Email"}
           autoComplete={"email"}
           value={props.user?.email ?? ""}
           disabled={true}

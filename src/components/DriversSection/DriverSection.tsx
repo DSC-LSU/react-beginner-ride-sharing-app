@@ -17,7 +17,7 @@ export const DriverSection = () => {
     onSnapshot(q, (querySnapshot) => {
       const newRiders: Array<Rider> = querySnapshot.docs.map<Rider>((doc) => ({
         name: doc.data().name,
-        lsuEmail: doc.id,
+        email: doc.id,
         requestPlacedTime: doc.data().requestPlacedTime.seconds * 1000,
         pickupLocation: doc.data().pickupLocation,
         dropoffLocation: doc.data().dropoffLocation,
@@ -30,7 +30,7 @@ export const DriverSection = () => {
   const riderCards = () => (
     <ul className={"riders"}>
       {riders.map((rider) => (
-        <li key={rider.lsuEmail}>
+        <li key={rider.email}>
           <RiderCard rider={rider} />
         </li>
       ))}
