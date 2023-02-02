@@ -12,6 +12,13 @@
   font-size: 1.8em;
 }
 
+.PageSection .section-sub-header {
+  /* font-size: 1.8em; */
+  margin-top: 8px;
+  text-align: center;
+  color: gray;
+}
+
 @media (max-width: 480px) {
   .PageSection {
     font-size: 0.8em;

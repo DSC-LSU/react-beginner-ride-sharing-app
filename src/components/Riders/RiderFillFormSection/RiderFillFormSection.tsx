@@ -118,6 +118,7 @@ export const RiderFillFormSection = (props: RiderFillFormSectionProps) => {
     <PageSection
       className={"RiderSection"}
       sectionHeader={"Request a ride"}
+      sectionSubHeader={""}
       children={requestRideForm()}
     />
   );

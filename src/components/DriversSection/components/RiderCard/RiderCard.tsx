@@ -15,7 +15,10 @@ export const RiderCard = (props: { rider: Rider }) => {
     const ref = doc(firebaseDb, "riders", rider.email);
     updateDoc(ref, newObject).catch((error) => {
       console.error("error updating rider status: ", error);
-      alert("Are you trying to edit a rider that's not you?: " + error);
+      alert(
+        "Are you not signed in or trying to edit a rider that's not you?: " +
+          error
+      );
     });
   };
 

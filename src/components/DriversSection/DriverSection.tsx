@@ -41,6 +41,7 @@ export const DriverSection = () => {
     <PageSection
       className={"DriversSection"}
       sectionHeader={"Here are your rides"}
+      sectionSubHeader="Make sure you're signed in to edit your rider card status"
       children={riderCards()}
     />
   );

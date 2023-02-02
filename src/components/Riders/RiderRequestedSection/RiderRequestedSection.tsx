@@ -50,6 +50,7 @@ export const RiderRequestedSection = (props: {
     <PageSection
       className="RiderRequestedSection"
       sectionHeader="Your ride is requested"
+      sectionSubHeader=""
       children={
         <ul className={"riders"}>
           <li>{rideRequestedCard}</li>
